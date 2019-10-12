@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:drinks_flutter_before/src/ui/home/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -26,10 +28,18 @@ class SplashScreen extends StatelessWidget {
                   width: 900.0,
                 ),
                 new Padding(padding: new EdgeInsets.all(3.0)),
-                CircularProgressIndicator(),
+                buildCircularProgressIndicator()
               ],
             )),
       ),
     );
+  }
+
+  Widget buildCircularProgressIndicator() {
+    if (Platform.isIOS) {
+      return CupertinoActivityIndicator();
+    } else {
+      return CircularProgressIndicator();
+    }
   }
 }
