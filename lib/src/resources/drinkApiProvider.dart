@@ -36,7 +36,7 @@ class DrinkApiProvider{
 
   // Filter by Category
   Future<FilterCategories> getFilterByCategories(String category) async {
-    final response = await dio.get("$_baseUrl/api/json/v1/1/filter.php?c=$category");
+    final response = await dio.get("$_baseUrl/filter.php?c=$category");
     if (response.statusCode == 200) {
       return FilterCategories.fromJson(response.data);
     } else {
@@ -46,7 +46,7 @@ class DrinkApiProvider{
 
   // Search by name
   Future<SearchDrinks> getSearchDrinksByName(String name) async {
-    final response = await dio.get("$_baseUrl/api/json/v1/1/search.php?s=$name");
+    final response = await dio.get("$_baseUrl/search.php?s=$name");
     if (response.statusCode == 200) {
       return SearchDrinks.fromJson(response.data);
     } else {

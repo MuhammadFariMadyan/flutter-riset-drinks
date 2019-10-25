@@ -38,19 +38,19 @@ class _HomeDrawerState extends State<HomeDrawer> {
       ),
       DrawerList(
         index: DrawerIndex.AboutUs,
-        labelName: 'About Us',
+        labelName: 'About Me',
         icon: new Icon(Icons.perm_identity),
       ),
-      DrawerList(
-        index: DrawerIndex.AboutApps,
-        labelName: 'About Apps',
-        icon: new Icon(Icons.perm_device_information),
-      ),
-      DrawerList(
-        index: DrawerIndex.Exit,
-        labelName: 'Keluar',
-        icon: new Icon(Icons.exit_to_app),
-      ),
+      // DrawerList(
+      //   index: DrawerIndex.AboutApps,
+      //   labelName: 'About Apps',
+      //   icon: new Icon(Icons.perm_device_information),
+      // ),
+      // DrawerList(
+      //   index: DrawerIndex.Exit,
+      //   labelName: 'Keluar',
+      //   icon: new Icon(Icons.exit_to_app),
+      // ),
     ];
   }
 
@@ -110,7 +110,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 4),
                     child: Text(
-                      "Chris Hemsworth",
+                      "Fari Madyan",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: AppTheme.grey,

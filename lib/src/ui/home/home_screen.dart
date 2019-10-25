@@ -191,11 +191,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              // return DetailDrinkScreen(
-                              //   id: latestDrinks.id,
-                              //   name: latestDrinks.name,
-                              //   imagePath: latestDrinks.imagePath,
-                              // );
+                              return DetailDrinksScreen(
+                                idDrink: latestDrinks.id,
+                                strDrink: latestDrinks.name,
+                                strDrinkThumb: latestDrinks.imagePath,
+                              );
                             },
                           ),
                         );
@@ -227,54 +227,52 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      // var isFavorite =
-                                      //     widget.filterCategoryItem.isFavorite;
-                                      // if (isFavorite) {
-                                      //   listMealsBloc
-                                      //       .deleteFavoriteMealById(widget
-                                      //           .filterCategoryItem.idMeal)
-                                      //       .then((status) {
-                                      //     setState(() {
-                                      //       widget.filterCategoryItem
-                                      //           .isFavorite = !isFavorite;
-                                      //     });
-                                      //   });
-                                      // } else {
-                                      //   Future<LookupMealsById>
-                                      //       lookupMealsById = listMealsBloc
-                                      //           .getDetailMealById(widget
-                                      //               .filterCategoryItem.idMeal);
-                                      //   lookupMealsById.then((value) {
-                                      //     if (value != null) {
-                                      //       var item =
-                                      //           value.lookupMealsbyIdItems[0];
-                                      //       FavoriteMeal favoriteMeal =
-                                      //           FavoriteMeal.fromJson(
-                                      //               item.toJson());
-                                      //       listMealsBloc
-                                      //           .addFavoriteMeal(favoriteMeal)
-                                      //           .then((status) {
-                                      //         setState(() {
-                                      //           widget.filterCategoryItem
-                                      //               .isFavorite = !isFavorite;
-                                      //         });
-                                      //       });
-                                      //     } else {
-                                      //       Scaffold.of(context).showSnackBar(
-                                      //           SnackBar(
-                                      //               content: Text(
-                                      //                   "Failed added to favorite meal")));
-                                      //     }
-                                      //   });
-                                      // }
+                                      var isFavorite = latestDrinks.isFavorite;
+                                      if (isFavorite) {
+                                        listDrinksBloc
+                                            .deleteFavoriteDrinkById(
+                                                latestDrinks.id)
+                                            .then((status) {
+                                          setState(() {
+                                            latestDrinks.isFavorite =
+                                                !isFavorite;
+                                          });
+                                        });
+                                      } else {
+                                        Future<LookupDrinksById>
+                                            lookupDrinksById =
+                                            listDrinksBloc.getDetailDrinkById(
+                                                latestDrinks.id);
+                                        lookupDrinksById.then((value) {
+                                          if (value != null) {
+                                            var item =
+                                                value.lookupDrinksByIdItems[0];
+                                            FavoriteDrink favoriteDrink =
+                                                FavoriteDrink.fromJson(
+                                                    item.toJson());
+                                            listDrinksBloc
+                                                .addFavoriteDrink(favoriteDrink)
+                                                .then((status) {
+                                              setState(() {
+                                                latestDrinks.isFavorite =
+                                                    !isFavorite;
+                                              });
+                                            });
+                                          } else {
+                                            Scaffold.of(context).showSnackBar(
+                                                SnackBar(
+                                                    content: Text(
+                                                        "Failed added to favorite drink")));
+                                          }
+                                        });
+                                      }
                                     },
                                     child: CircleAvatar(
                                       backgroundColor: Colors.white70,
                                       child: Icon(
-                                        // widget.filterCategoryItem.isFavorite
-                                        //     ? Icons.favorite
-                                        //     :
-                                        Icons.favorite_border,
+                                        latestDrinks.isFavorite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border,
                                         color: Colors.black,
                                         size: 15.0,
                                       ),
@@ -286,11 +284,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               Padding(
                                 padding: const EdgeInsets.only(top: 6.0),
                               ),
-                              // Hero(
-                              //   tag:
-                              //       "label_item_latest_drinks_${latestDrinks.name}",
-                              //   child:
-                              // ),
                               Text(
                                 latestDrinks.name,
                                 maxLines: 2,
@@ -373,25 +366,29 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {                                      
-                                      var isFavorite =
-                                         popularDrinks.isFavorite;
+                                    onTap: () {
+                                      var isFavorite = popularDrinks.isFavorite;
                                       if (isFavorite) {
                                         listDrinksBloc
-                                            .deleteFavoriteDrinkById(popularDrinks.id)
+                                            .deleteFavoriteDrinkById(
+                                                popularDrinks.id)
                                             .then((status) {
                                           setState(() {
-                                           popularDrinks
-                                                .isFavorite = !isFavorite;
+                                            popularDrinks.isFavorite =
+                                                !isFavorite;
                                           });
                                         });
                                       } else {
                                         Future<LookupDrinksById>
-                                            lookupDrinksById = listDrinksBloc
-                                                .getDetailDrinkById(popularDrinks.id);
+                                            lookupDrinksById =
+                                            listDrinksBloc.getDetailDrinkById(
+                                                popularDrinks.id);
                                         lookupDrinksById.then((value) {
                                           if (value != null) {
-                                            var item = value.lookupDrinksByIdItems[0];                                                
+                                            print("Value gak null");
+                                            print(value);
+                                            var item =
+                                                value.lookupDrinksByIdItems[0];
                                             FavoriteDrink favoriteDrink =
                                                 FavoriteDrink.fromJson(
                                                     item.toJson());
@@ -399,8 +396,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                 .addFavoriteDrink(favoriteDrink)
                                                 .then((status) {
                                               setState(() {
-                                               popularDrinks
-                                                    .isFavorite = !isFavorite;
+                                                popularDrinks.isFavorite =
+                                                    !isFavorite;
                                               });
                                             });
                                           } else {
@@ -415,20 +412,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     child: CircleAvatar(
                                       backgroundColor: Colors.white70,
                                       child: Icon(
-                                       popularDrinks.isFavorite
-                                          ? Icons.favorite
-                                          : Icons.favorite_border,                                        
+                                        popularDrinks.isFavorite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border,
                                         color: Colors.black,
                                         size: 15.0,
                                       ),
                                       maxRadius: 10.0,
                                     ),
                                   ),
-                                  // Hero(
-                                  //   tag:
-                                  //       "label_item_popular_drinks_${popularDrinks.name}",
-                                  //   child:
-                                  // ),
                                 ],
                               ),
                               Padding(

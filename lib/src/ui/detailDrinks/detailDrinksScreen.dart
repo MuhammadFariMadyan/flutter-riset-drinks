@@ -4,7 +4,6 @@ import 'package:drinks_flutter_before/src/database/entity/favoriteDrink.dart';
 import 'package:drinks_flutter_before/src/models/lookupDrinksById/lookupDrinksById.dart';
 import 'package:drinks_flutter_before/src/util/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DetailDrinksScreen extends StatefulWidget {
   final String idDrink;
@@ -192,11 +191,7 @@ class _DetailDrinksScreenState extends State<DetailDrinksScreen> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        // _buildWidgetInfoPlayVideo(
-        //     detailDrinks?.strVideo ?? widget.favoriteDrink?.strVideo ?? ""),
-        // Padding(padding: EdgeInsets.only(left: 8.0)),
-        // _buildVerticalDivider(),
+      children: <Widget>[        
         Padding(padding: EdgeInsets.only(left: 8.0)),
         _buildWidgetInfoCategoryDrink(detailDrinks?.strCategory ??
             widget.favoriteDrink?.strCategory ??
@@ -209,55 +204,7 @@ class _DetailDrinksScreenState extends State<DetailDrinksScreen> {
         Padding(padding: EdgeInsets.only(left: 8.0)),
       ],
     );
-  }
-
-  Widget _buildWidgetInfoPlayVideo(String strVideo) {
-    return GestureDetector(
-      onTap: () async {
-        if (strVideo.isNotEmpty) {
-          if (Platform.isIOS) {
-            if (await canLaunch(strVideo)) {
-              await launch(strVideo, forceSafariVC: false);
-            } else {
-              if (await canLaunch(strVideo)) {
-                await launch(strVideo);
-              } else {
-                Scaffold.of(context).showSnackBar(
-                    SnackBar(content: Text("Could not play video")));
-                throw "Could not play video";
-              }
-            }
-          } else {
-            if (await canLaunch(strVideo)) {
-              await launch(strVideo);
-            } else {
-              Scaffold.of(context).showSnackBar(
-                  SnackBar(content: Text("Could not play video")));
-              throw "Could not play video";
-            }
-          }
-        }
-      },
-      child: Row(
-        children: <Widget>[
-          Icon(
-            Icons.ondemand_video,
-            size: 28.0,
-          ),
-          Padding(padding: EdgeInsets.only(left: 8.0)),
-          Column(
-            children: <Widget>[
-              Text(strVideo.isEmpty ? "Video" : "Play"),
-              Text(
-                strVideo.isEmpty ? "N/A" : "Video",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+  }  
 
   Widget _buildVerticalDivider() {
     return Container(

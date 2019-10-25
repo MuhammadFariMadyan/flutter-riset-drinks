@@ -6,6 +6,8 @@ class FavoriteDrinkDao {
   final dbProvider = DatabaseProvider.dbProvider;
 
   Future<int> createFavoriteDrink(FavoriteDrink favoriteDrink) async {
+    print("Simpan data, datanya :");
+    print(favoriteDrink.toJson());
     final db = await dbProvider.database;
     var result = db.insert(favoriteTable, favoriteDrink.toJson());
     return result;

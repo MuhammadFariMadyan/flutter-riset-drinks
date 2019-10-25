@@ -22,10 +22,7 @@ dependencies:
   json_serializable: ^3.0.0
 
   # Tools to write binaries that run builders.
-  build_runner: ^1.5.1
-
-  # Flutter plugin for launching a URL on Android and iOS.
-  url_launcher: ^5.0.3
+  build_runner: ^1.5.1  
 
   # Flutter plugin for SQLite.
   sqflite: ^1.1.5

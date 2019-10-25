@@ -32,7 +32,7 @@ class _FavoritScreenState extends State<FavoritScreen> {
               Container(
                 padding: EdgeInsets.only(top: 8),
                 child: Text(
-                  'How can we help you?',
+                  'This Page is Coming Soon',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,7 +42,7 @@ class _FavoritScreenState extends State<FavoritScreen> {
               Container(
                 padding: EdgeInsets.only(top: 16),
                 child: Text(
-                  "It looks like you are experiencing problems\nwith our sign up process. We are here to\nhelp so please get in touch with us",
+                  "Halaman ini nantinya akan memampilkan daftar minuman favorit",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -74,7 +74,7 @@ class _FavoritScreenState extends State<FavoritScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
-                                'Chat with Us',
+                                'Terima Kasih',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white,

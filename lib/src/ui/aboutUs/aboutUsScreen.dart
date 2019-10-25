@@ -32,7 +32,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
               Container(
                 padding: EdgeInsets.only(top: 8),
                 child: Text(
-                  'How can we help you?',
+                  'Hi, Saya Fari',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,7 +42,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
               Container(
                 padding: EdgeInsets.only(top: 16),
                 child: Text(
-                  "It looks like you are experiencing problems\nwith our sign up process. We are here to\nhelp so please get in touch with us",
+                  "Aplikasi ini sekarang masih dalam masa development, ada beberapa fitur yang belum selesai dikerjakan, diantaranya: Halaman Search, Filter by Category, dan fitur Favorit",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -74,7 +74,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
-                                'Chat with Us',
+                                'Terima Kasih',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white,
