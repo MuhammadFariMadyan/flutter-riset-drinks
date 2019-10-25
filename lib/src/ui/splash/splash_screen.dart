@@ -1,7 +1,6 @@
-import 'dart:io';
+import 'package:drinks_flutter_before/src/navigationHomeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:drinks_flutter_before/src/ui/home/home_screen.dart';
 import 'package:drinks_flutter_before/src/util/utils.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -12,7 +11,7 @@ class SplashScreen extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (BuildContext context) {
-            return HomeScreen();
+            return NavigationHomeScreen();
           },
         ),
       );

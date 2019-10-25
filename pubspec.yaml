@@ -18,6 +18,24 @@ dependencies:
   # Reactive functional programming library for Google Dart, based on ReactiveX.
   rxdart: ^0.22.3
 
+  # Automatically generate code for converting to and from JSON
+  json_serializable: ^3.0.0
+
+  # Tools to write binaries that run builders.
+  build_runner: ^1.5.1
+
+  # Flutter plugin for launching a URL on Android and iOS.
+  url_launcher: ^5.0.3
+
+  # Flutter plugin for SQLite.
+  sqflite: ^1.1.5
+
+  # Flutter plugin for getting commonly used locations on the Android & iOS.
+  path_provider: ^1.1.0
+
+  # Get the version name, version code, platform, OS version and app ID.
+  get_version: ^0.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -29,3 +47,20 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+  
+  fonts:
+    - family: WorkSans
+      fonts:
+        - asset: assets/fonts/WorkSans-Regular.ttf
+        - asset: assets/fonts/WorkSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/WorkSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/WorkSans-Bold.ttf
+          weight: 700
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 400
